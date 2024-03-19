@@ -1,6 +1,6 @@
 // rafce 
-import React from 'react'
-import './content.css'
+import React from 'react';
+import './Content.css'
 
 const Content = () => {
 

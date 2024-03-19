@@ -1,5 +1,7 @@
 // rafce 
 import { useState } from 'react';
+import { GoTrash } from "react-icons/go";
+
 import './content.css'
 
 const Content = () => {
@@ -60,9 +62,10 @@ const Content = () => {
 
 <ul>
   {items.map((item) => (
-   <li className='item'>
+   <li className='item' key={item.id}>
     <input type='checkbox' checked={item.checked} />
     <label>{item.item}</label>
+    <GoTrash />
     <button>Delete</button>
 
 
