@@ -31,7 +31,7 @@ max-width: 500px;}
   header{
     width:100%;
     padding:0.025rem;
-    background-color:mediumblue;
+    background-image:radial-gradient(rgb(22, 22, 20), rgb(27, 209, 127));
     color:aliceblue;
     display:flex;
     justify-content: space-between ;
@@ -45,7 +45,8 @@ max-width: 500px;}
     display:grid;
     color:aliceblue;
     place-content: center;
-    background-color: mediumblue;
+    background-image:radial-gradient(rgb(22, 22, 20), rgb(27, 209, 127));
+    
     
 
   }
