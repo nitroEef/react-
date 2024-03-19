@@ -6,7 +6,7 @@ const header = () => {
   
   
 return (
-    <header>
+    <header  >
       <h1>Cohort 4.0 students detail</h1>
     </header>
   );
