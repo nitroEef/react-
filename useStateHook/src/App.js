@@ -3,8 +3,7 @@ import './App.css';
 import Header from './Header'; 
 import Content from './Content';
 import Footer from './Footer';
-import Welcome from './Welcome';
-import Hero from './Hero';
+;
 
 
 
@@ -16,12 +15,13 @@ function App() {
     <div className="App">
       <Header/>
       <Content />
-      <Welcome />
-      <Hero />
+      
       <Footer />
       
     </div>
   );
 }
+
+// usestate is for us to create our own component 
 
 export default App;

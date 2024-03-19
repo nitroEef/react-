@@ -1,16 +1,22 @@
 // rafce 
-import React from 'react'
+import { useState } from 'react';
 import './content.css'
 
 const Content = () => {
+  const [name, setName] = useState('basirah')
+  const [count, setCount] = useState('0')
+
+
+
+
     const handleNameChange = () => {
     const names = ["fulani", "Oye", "eef"];
     const int = Math.floor(Math.random() * 3);
-    return names[int] 
+    setName(names[int]) 
   };
 
   const handleClick = () => {
-    console.log("you clicked") 
+    console.log("count") 
    }
 
    const handleClick2 = (name) => {
@@ -20,7 +26,9 @@ const Content = () => {
 
   return (
     <main className='student'>
-      <h1> {handleNameChange()} </h1>
+      <h1> {name} </h1>
+      <button onClick={handleNameChange}>Change Name</button>
+
       <button onClick={handleClick}>Click me</button>
       <button onDoubleClick={() => handleClick2('az')}>Click me</button>
 

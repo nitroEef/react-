@@ -1,12 +1,10 @@
 // rafce 
-import {useState} from 'react'
+import React from 'react'
 import './content.css'
-
-
 
 const Content = () => {
 
-  const [name, setName] = useState['Basirah']
+
 
     const handleNameChange = () => {
     const names = ["fulani", "Oye", "eef"];
@@ -25,7 +23,7 @@ const Content = () => {
 
   return (
     <main className='student'>
-      <h1> {name} </h1>
+      <h1> {handleNameChange()} </h1>
       <button onClick={handleClick}>Click me</button>
       <button onDoubleClick={() => handleClick2('az')}>Click me</button>
 
