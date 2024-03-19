@@ -3,7 +3,8 @@ import './App.css';
 import Header from './Header'; 
 import Content from './Content';
 import Footer from './Footer';
-
+import Welcome from './Welcome';
+import Hero from './Hero';
 
 
 
@@ -15,7 +16,9 @@ function App() {
     <div className="App">
       <Header/>
       <Content />
-     <Footer />
+      <Welcome />
+      <Hero />
+      <Footer />
       
     </div>
   );
