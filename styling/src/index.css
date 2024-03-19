@@ -33,8 +33,28 @@ body {
     background-color:mediumblue;
     color:aliceblue;
     display:flex;
-    justify-content: space-between;
+    justify-content: space-between ;
     align-items: center;
+  }
+
+  main{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+  }
+
+  footer{
+    display:grid;
+    color:aliceblue;
+    place-content: center;
+    background-color: mediumblue;
+    padding:0.25rem;
+    width:100%
+
   }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
