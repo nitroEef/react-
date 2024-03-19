@@ -1,12 +1,11 @@
 import React from 'react'
 
 const header = () => {
-  const headerStyle = {
-    background:"green"}
+  
   
   
 return (
-    <header  >
+    <header >
       <h1>Cohort 4.0 students detail</h1>
     </header>
   );
