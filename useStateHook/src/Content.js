@@ -1,9 +1,3 @@
-// local storage is an object in js , not a method or function 
-// but it is a part of web storage api and provide method for 
-// storing and accessing data locally in the users web browsers 
-// it cant work alone without JSON.stringify and JSON.parse 
-
-
 import React, { useState } from "react";
 import { FaTrashRestoreAlt } from "react-icons/fa";
 import "./content.css";
@@ -44,33 +38,42 @@ const Content = () => {
   };
 
   const handleDelete = (id) => {
-      const listItems = items.filter((item) => item.id !== id); 
-      setItems(listItems);
-  }
+    const listItems = items.filter((item) => item.id !== id);
+    setItems(listItems);
+  };
 
   return (
     <main className="student">
-      <ul>
-        {items.map((item) => {
-          return (
-            <li className="item" key={item.id}>
-              <input
-                type="checkbox"
-                onClick={() => handleCheck(item.id)}
-                checked={item.checked}
-              />
-
-              <label 
-              style={(item.checked) ? {textDecoration:"line-through"} :null}
-              onDoubleClick={() => handleDelete(item.id)} >{item.item}</label>
-              <FaTrashRestoreAlt
-             // onClick={() => handleDelete(item.id)} //
-              />
-              
-            </li>
-          );
-        })}
-      </ul>
+    {items.lenght ? (
+          <ul>
+          {items.map((item) => {
+            return (
+              <li className="item" key={item.id}>
+                <input
+                  type="checkbox"
+                  onClick={() => handleCheck(item.id)}
+                  checked={item.checked}
+                />
+  
+                <label
+                  style={(items.checked) ? {textDecoration: "line-through"} : null}
+                  onDoubleClick={() => handleDelete(item.id)}
+                >
+                  {item.item}
+                </label>
+                <FaTrashRestoreAlt
+                onClick={() => handleDelete(item.id)} 
+                role="button"
+                tabIndex="0"
+                />
+              </li>
+            );
+          })}
+        </ul>
+    
+    )  :   (
+         <p style={{marginTop: "2rem"}}>Your list is empty</p>
+      )}
     </main>
   );
 };
