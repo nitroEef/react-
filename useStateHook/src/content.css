@@ -16,9 +16,9 @@
     padding: 0 0.25rem 0.25rem;
   }
   
-  ul li::before {
+  /* ul li::before {
     content: "\200B";
-  }
+  } */
   
   .item {
     display: flex;
