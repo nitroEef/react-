@@ -84,4 +84,6 @@ const addItem = (item) => {
 }
 
 export default App;
-kkxh
+git add .
+git commit -m "update"
+git push
