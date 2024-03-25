@@ -37,7 +37,7 @@ function App() {
 const addItem = (item) => {
   const id = items.length ? items[items.length - 1] . id + 1 : 1;
   const myNewItem = {id, checked: false, item}
-  const listItems = [...items, myNewItem]
+  const listItems = [...items, myNewItem] //spreading an array
   setItems(listItems);
   localStorage.setItem("shoppinglist", JSON.stringify(listItems));
 
@@ -84,3 +84,5 @@ const addItem = (item) => {
 }
 
 export default App;
+
+// setitem is uploding thee whole item
