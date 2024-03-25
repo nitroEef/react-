@@ -34,6 +34,14 @@ function App() {
 
   const [newItem, setNewItem] = useState('')
 
+const addItem = (item) => {
+  const id = items.length ? items[items.length - 1] . id + 1 : 1;
+  const myNewItem = {id, checked: false, item}
+  const listItems = [...items, myNewItem]
+  setItems(listItems);
+  localStorage.setItem("shoppinglist", JSON.stringify(listItems));
+
+}
 
   const handleCheck = (value) => {
     // console.log(key: ${id});

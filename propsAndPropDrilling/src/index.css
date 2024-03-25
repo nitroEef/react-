@@ -56,7 +56,7 @@ code {
     monospace;
 }
 
-.addform{
+.addForm{
   width:100%;
   display:flex;
   justify-content: flex-start;
