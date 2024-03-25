@@ -61,7 +61,7 @@ const addItem = (item) => {
  const handleSubmit = (e) => {
     e.preventDefault();
     if(!newItem) return;
-  addItem(newItem)
+    addItem(newItem)
     setNewItem('')
   }
    return (
