@@ -1,15 +1,14 @@
-import {useState} from 'react'
-import logo from './logo.svg';
-import './App.css';
-import Header from './Header'; 
-import Content from './Content';
-import Footer from './Footer';
-
-
+import { useState } from "react";
+import "./App.css";
+import Content from "./Content";
+import Footer from "./Footer";
+import Header from "./Header";
+import AddItem from "./AddItem";
 
 
 function App() {
-  // const name = "hayzed";
+  // const name = "Hayzed";
+
   const [items, setItems] = useState([
     {
       id: 1,
@@ -33,10 +32,13 @@ function App() {
     },
   ]);
 
-  const handleCheck = (id) => {
+  const [newItem, setNewItem] = useState('')
+
+
+  const handleCheck = (value) => {
     // console.log(key: ${id});
     const listItems = items.map((item) =>
-      item.id === id ? { ...item, checked: !item.checked } : item
+      item.id === value ? { ...item, checked: !item.checked } : item
     );
     setItems(listItems);
 
@@ -48,22 +50,29 @@ function App() {
     setItems(listItems);
   };
 
-    
-  return (
+ const handleSubmit = (e) => {
+    e.preventDefault();
+    if(!newItem) return;
+
+    setNewItem('')
+  }
+   return (
     <div className="App">
-      <Header title ="welcome to props"/>  
-      <Content 
-      items={items} 
-      handleCheck={handleCheck}
-      handleDelete={handleDelete}
+      <Header title="Welcome to Props"/>
+      <AddItem 
+      newItem={newItem}
+      setNewItem={setNewItem}
+      handleSubmit={handleSubmit}
       />
-      
+
+      <Content
+      items={items}
+      handleCheck={handleCheck}
+      handleDelete={handleDelete} />
+
       <Footer length={items.length} />
-      
     </div>
   );
 }
-
-// usestate is for us to create our own component 
 
 export default App;
