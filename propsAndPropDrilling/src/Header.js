@@ -1,17 +1,18 @@
-import React from 'react'
 
-const header = ({title}) => {
-  
-  
+
+const Header = ({title}) => {  
   
 return (
     <header >
       <h1>{title}</h1>
     </header>
   );
-}
+};
 
-export default header
+// Header.defaultProps = {
+//   title:"Default Title"
+// }
+export default Header
 
 // direct inline styling 
 // {/* <header style={{background:"blue", color:'red'}}>
@@ -25,6 +26,6 @@ export default header
 //     background:"green"}
   
   
-{/* <header style={headerStyle}>
+/* <header style={headerStyle}>
 <h1>Cohort 4.0 students detail</h1>
-</header> */}
+</header> */

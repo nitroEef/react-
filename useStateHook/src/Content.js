@@ -79,3 +79,7 @@ const Content = () => {
 };
 
 export default Content;
+
+
+//props driving allow us to pass a data from 
+// parent to child element 
