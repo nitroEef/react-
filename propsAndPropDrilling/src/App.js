@@ -7,7 +7,7 @@ import AddItem from "./AddItem";
 
 
 function App() {
-  // const name = "Hayzed";
+  // const name = "Hayzed"
 
   const [items, setItems] = useState([
     {
