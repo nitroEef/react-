@@ -7,7 +7,7 @@ const Itemlist = ({items, handleCheck, handleDelete}) => {
   return (
     <ul>
           {items.map((item) => {
-            return (
+            return ( 
               <LineItem
               key={item.id}
               item={item}
@@ -16,7 +16,7 @@ const Itemlist = ({items, handleCheck, handleDelete}) => {
           );
           })}
         </ul>
-  )
+  ) 
 }
 
 export default Itemlist

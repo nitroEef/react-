@@ -4,54 +4,42 @@ import Content from "./Content";
 import Footer from "./Footer";
 import Header from "./Header";
 import AddItem from "./AddItem";
+import Searchitem from "./Searchitem";
 
 
 function App() {
   // const name = "Hayzed"
 
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      checked: false,
-      item: "A bag of Garri",
-    },
-    {
-      id: 2,
-      checked: false,
-      item: " Rice",
-    },
-    {
-      id: 3,
-      checked: false,
-      item: "Semo",
-    },
-    {
-      id: 4,
-      checked: false,
-      item: "Ponmo",
-    },
-  ]);
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem("shoppinglist")))
 
-  const [newItem, setNewItem] = useState('')
+  const [newItem, setNewItem] = useState('');
+  const [search, setSearch] = useState('')
+
+  const setAndSaveItems = (newItems) => {
+    setItems(newItems);
+    localStorage.setItem("Shoppinglist", JSON.stringify(newItems));
+  };
 
 const addItem = (item) => {
   const id = items.length ? items[items.length - 1] . id + 1 : 1;
   const myNewItem = {id, checked: false, item}
   const listItems = [...items, myNewItem] //spreading an array
-  setItems(listItems);
-  localStorage.setItem("shoppinglist", JSON.stringify(listItems));
+  setAndSaveItems(listItems)
+  // setItems(listItems);
+  // localStorage.setItem("shoppinglist", JSON.stringify(listItems));
 
 }
 
   const handleCheck = (value) => {
-    // console.log(key: ${id});
-    const listItems = items.map((item) =>
-      item.id === value ? { ...item, checked: !item.checked } : item
-    );
-    setItems(listItems);
+    const listItems = items.map((item) => item.id === value ? { ...item, checked: !item.checked } : item);
+  setAndSaveItems(listItems) ;
 
-    localStorage.setItem("shoppinglist", JSON.stringify(listItems));
+    // setItems(listItems);
+
+    // localStorage.setItem("shoppinglist", JSON.stringify(listItems));
   };
+
+
 
   const handleDelete = (id) => {
     const listItems = items.filter((item) => item.id !== id);
@@ -67,6 +55,11 @@ const addItem = (item) => {
    return (
     <div className="App">
       <Header title="Welcome to Props"/>
+      
+      <Searchitem
+      search = {search}
+      setSearch={setSearch}/>
+      
       <AddItem 
       newItem={newItem}
       setNewItem={setNewItem}
@@ -74,7 +67,7 @@ const addItem = (item) => {
       />
 
       <Content
-      items={items}
+      items={items.filter(item =>((item.item).toLowerCase().includes)(search.toLocaleLowerCase()))}
       handleCheck={handleCheck}
       handleDelete={handleDelete} />
 
