@@ -5,7 +5,7 @@ const LineItem = ({item, handleCheck, handleDelete}) => {
         <li className="item" key={item.id}>
         <input
             type="checkbox"
-            onClick={() => handleCheck(item.id)}
+            onChange={() => handleCheck(item.id)}
             checked={item.checked}
         />
 
@@ -19,6 +19,7 @@ const LineItem = ({item, handleCheck, handleDelete}) => {
         onClick={() => handleDelete(item.id)} 
         role="button"
         tabIndex="0"
+        aria-label="{"
         />
         </li>
         )
