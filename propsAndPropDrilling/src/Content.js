@@ -6,7 +6,7 @@ const Content = ({items, handleCheck, handleDelete}) => {
   // const [name, setName] = useState('Basirah')
   
   return (
-    <main className="student">
+    <>
     {items.length ? (
           <ItemList
           items={items}
@@ -18,7 +18,7 @@ const Content = ({items, handleCheck, handleDelete}) => {
     )  :   (
          <p style={{marginTop: "2rem"}}>Your list is empty</p>
       )}
-    </main>
+    </>
   );
 };
 
