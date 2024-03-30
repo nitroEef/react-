@@ -91,7 +91,7 @@ function App() {
 
   const handleDelete = (id) => {
     const listItems = items.filter((item) => item.id !== id);
-    setItems(listItems); //this filter function here filters through an array & to create a new array with listitems which contain all items except one with specified id.
+    setItems(listItems); //this filter function here filters through an array and to create a new array with listitems which contain all items except one with specified id.
   };
 
   const handleSubmit = (e) => {
