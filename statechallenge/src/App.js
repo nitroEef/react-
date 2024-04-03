@@ -30,6 +30,7 @@ function App() {
       reqType={reqType}
       setReqType={setReqType}
       />
+      <List items = {items}/>
       
     </div>
   );
