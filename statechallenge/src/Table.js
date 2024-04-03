@@ -1,8 +1,15 @@
 import React from 'react'
 
-const Table = () => {
+const Table = ({items}) => {
   return (
-    <div>
+    <div className='table-container'>
+        <table>
+            <tbody>
+                {items.map((item) =>(
+                    <Row key={item.id} item={item} />
+                ))}
+            </tbody>
+        </table>
       
     </div>
   )

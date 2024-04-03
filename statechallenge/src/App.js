@@ -34,7 +34,7 @@ function App() {
       />
       {/* <List items = {items}/> */}
       
-      <Table/>
+      <Table items={items}/>
     </div>
   );
 }
