@@ -1,13 +1,11 @@
-
-
 import { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./Header";
 import Content from "./Content";
 import Footer from "./Footer";
 import AddItem from "./AddItem";
-import Searchitem from "./Searchitem";
-import apiRequest from "./apiRequest";
+import SearchItem from "./Searchitem";
+import ApiRequest from "./apiRequest";
 
 
 function App() {
@@ -26,7 +24,7 @@ function App() {
       try {
         const response = await fetch(API_URL);
 
-        if (!response.ok) throw Error(`The data is not accessible!!!`);
+        if (!response.ok) throw Error('The data is not accessible!!!');
         const listItems = await response.json();
         console.log(listItems);
         setItems(listItems);
@@ -56,14 +54,14 @@ function App() {
     setItems(listItems);
 
    //POST
-    const postOption = {
+    const postOptions = {
       method: "POST",
       headers: {
         'Content-Type':'apllication/json'
       },
       body: JSON.stringify(myNewItem)
     }
-  const result = await apiRequest(API_URL,postOption);
+  const result = await ApiRequest(API_URL, postOptions);
   if(result) setFetchError(result)
 
   };
@@ -76,7 +74,7 @@ function App() {
 
     //UPDATE
     const myItem = listItems.filter((item)  => item.id === id)
-    const updateOption = {
+    const updateOptions = {
       method: 'PATCH',
       headers: {
         'Content-TYpe':'application/json'
@@ -84,15 +82,27 @@ function App() {
       body:JSON.stringify({checked: myItem[0].checked})
     }
     const reqUrl = `${API_URL}/${id}`
-    const result = await apiRequest(reqUrl, updateOption);
+    const result = await ApiRequest(reqUrl, updateOptions);
     if(result) setFetchError(result)
 
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
     const listItems = items.filter((item) => item.id !== id);
-    setItems(listItems); //this filter function here filters through an array and to create a new array with listitems which contain all items except one with specified id.
+    setItems(listItems); //this filter function here filters through an array & to create a new array with listitems which contain all items except one with specified id.
+  
+  
+    // DELETE
+  
+    const delOption = {
+      method: "DELETE",
+    }
+    const reqUrl = `${API_URL}/${id}`
+      const result = await ApiRequest(reqUrl, delOption);
+      if(result) setFetchError(result);
   };
+
+    
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -106,7 +116,7 @@ function App() {
     <div className="App">
       <Header title="Welcome to Props👨‍💻" />
 
-      <Searchitem search={search} setSearch={setSearch} />
+      <SearchItem search={search} setSearch={setSearch} />
 
       <AddItem
         newItem={newItem}
@@ -133,4 +143,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;
