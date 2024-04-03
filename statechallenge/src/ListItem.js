@@ -2,9 +2,9 @@ import React from 'react'
 
 const ListItem = () => {
   return (
-    <div>
-      
-    </div>
+    <li>
+      {JSON.stringify(itemcd )}
+    </li>
   )
 }
 
