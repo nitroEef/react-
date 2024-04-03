@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Row = () => {
+const Row = ({item}) => {
   return (
-    <div>
+    <tr>
       
-    </div>
+    </tr>
   )
 }
 
