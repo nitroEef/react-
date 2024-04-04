@@ -47,11 +47,13 @@ function App() {
       body:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus voluptatum, minus illo alias doloribus nulla quasi dolorum eaque error incidunt blanditiis quia ex maxime optio reiciendis perferendis porro atque laudantium qui!",
     }
   ])
+  const navigate = useNavigate()
   const [search, setSearch] = useState('')
   const [searchResult, setSearchResult] = useState([])
   const handleDelete = (id) => {
     const postList = posts.filter(post => post.id !== id)
-
+    setPosts(postList)
+    navigate('/')
   }
 
   return (
