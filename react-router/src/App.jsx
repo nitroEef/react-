@@ -7,10 +7,10 @@ import Missing from "./Missing"
 import Nav from "./Nav"
 import Newpost from "./Newpost"
 import Postpage from "./Postpage"
-
+import {useState} from "react"
 
 function App() {
-  const [post, setPost] = useState([
+  const [posts, setPosts] = useState([
     {
       id:1,
       title: "my first post",
@@ -37,19 +37,30 @@ function App() {
       title: "my fourth post",
       dateTime : "April 04, 2024 11:01:43am",
       body:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus voluptatum, minus illo alias doloribus nulla quasi dolorum eaque error incidunt blanditiis quia ex maxime optio reiciendis perferendis porro atque laudantium qui!",
+    },
+
+    {
+      id:5,
+      title: "my fifth post",
+      dateTime : "April 04, 2024 11:01:43am",
+      body:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus voluptatum, minus illo alias doloribus nulla quasi dolorum eaque error incidunt blanditiis quia ex maxime optio reiciendis perferendis porro atque laudantium qui!",
     }
   ])
   const [search, setSearch] = useState('')
   const [searchResult, setSearchResult] = useState([])
+  const handleDelete = (id) => {
+    const postList = posts.filter(post => post.id !== id)
+
+  }
 
   return (
     <div className="App">
       <Header title="DLT blogs"/>
       <Nav search={search} setSearch={setSearch}/>
       <Routes>
-        <Route path="/" element={<Home/>}  />   
+        <Route path="/" element={<Home posts={posts}/>}  />   
         <Route path="/post" element={<Newpost/>} />
-        <Route path="/post/:id" element={<Postpage/>} />
+        <Route path="/post/:id" element={<Postpage posts={posts} handleDelete={handleDelete}/>} />
         <Route path="/about" element={<About/>} />
         <Route path="*" element={<Missing/>}  />
 

@@ -1,6 +1,6 @@
 import Post from "./Post"
 
-const Feed = () => {
+const Feed = ({posts}) => {
   return (
     <>
       {posts.map(post =>(

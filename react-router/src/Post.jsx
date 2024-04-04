@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Post = () => {
+const Post = ({post}) => {
   return (
- <article>
+ <article className='post'>
     <Link to={`/post/${post.id}`} >
         <h2>{post.title}</h2>
         <p className='postDate'>{post.dateTime}</p>
