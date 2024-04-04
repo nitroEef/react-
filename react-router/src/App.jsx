@@ -10,11 +10,42 @@ import Postpage from "./Postpage"
 
 
 function App() {
+  const [post, setPost] = useState([
+    {
+      id:1,
+      title: "my first post",
+      dateTime : "April 04, 2024 11:01:43am",
+      body:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus voluptatum, minus illo alias doloribus nulla quasi dolorum eaque error incidunt blanditiis quia ex maxime optio reiciendis perferendis porro atque laudantium qui!",
+    },
+
+    {
+      id:2,
+      title: "my second post",
+      dateTime : "April 04, 2024 11:01:43am",
+      body:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus voluptatum, minus illo alias doloribus nulla quasi dolorum eaque error incidunt blanditiis quia ex maxime optio reiciendis perferendis porro atque laudantium qui!",
+    },
+
+    {
+      id:3,
+      title: "my third post",
+      dateTime : "April 04, 2024 11:01:43am",
+      body:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus voluptatum, minus illo alias doloribus nulla quasi dolorum eaque error incidunt blanditiis quia ex maxime optio reiciendis perferendis porro atque laudantium qui!",
+    },
+
+    {
+      id:4,
+      title: "my fourth post",
+      dateTime : "April 04, 2024 11:01:43am",
+      body:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus voluptatum, minus illo alias doloribus nulla quasi dolorum eaque error incidunt blanditiis quia ex maxime optio reiciendis perferendis porro atque laudantium qui!",
+    }
+  ])
+  const [search, setSearch] = useState('')
+  const [searchResult, setSearchResult] = useState([])
 
   return (
     <div className="App">
       <Header title="DLT blogs"/>
-      <Nav/>
+      <Nav search={search} setSearch={setSearch}/>
       <Routes>
         <Route path="/" element={<Home/>}  />   
         <Route path="/post" element={<Newpost/>} />
