@@ -18,6 +18,16 @@ return(
           </button>
           </>
         }
+
+        {!post &&
+        <>
+        <h2>Post not Found</h2>
+        <p>well, that is disappointing</p>
+        <p>
+          <Link to="/">Visit our Homepage</Link>
+        </p>
+        </>
+        }
       </article>
     </main>
   )
