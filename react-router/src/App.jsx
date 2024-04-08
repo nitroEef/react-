@@ -7,7 +7,7 @@ import Missing from "./Missing";
 import Nav from "./Nav";
 import NewPost from "./NewPost";
 import Postpage from "./Postpage";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import {format} from 'date-fns';
 
 function App() {
@@ -48,6 +48,10 @@ function App() {
   const [searchResult, setSearchResult] = useState([]);
   const [postTitle, setPostTitle] = useState('');
   const [PostBody, setPostBody] = useState('');
+
+useEffect{}
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const id = posts.length ? posts[posts.length -1].id + 1 : 1
