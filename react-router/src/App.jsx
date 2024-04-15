@@ -49,7 +49,13 @@ function App() {
   const [postTitle, setPostTitle] = useState('');
   const [PostBody, setPostBody] = useState('');
 
-useEffect{}
+  useEffect(() => {
+    const filteredResult = posts.filter((post) =>
+    ((post.body).toLowerCase()).includes(search.toLowerCase()) ||
+    ((post.title).toLowerCase()).includes(search.toLowerCase()))
+
+    setSearchResult(filteredResult.reverse())
+  }, [posts, search])
 
 
   const handleSubmit = (e) => {
@@ -68,13 +74,13 @@ useEffect{}
     setPosts(postList);
 
     navigate("/");
-  };
+  };-
   return (
     <div className="App">
       <Header title="DLT Blogs" />
       <Nav search={search} setSearch={setSearch} />
       <Routes>
-        <Route path="/" element={<Home posts={posts} />} />
+        <Route path="/" element={<Home posts={searchResult} />} />
         <Route path="/post" element={<NewPost handleSubmit={handleSubmit} 
          postTitle={postTitle}
          PostBody={PostBody} setPostBody={setPostBody} 
