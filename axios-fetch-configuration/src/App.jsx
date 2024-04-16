@@ -12,7 +12,7 @@ import { format } from "date-fns";
 import api from "./api/post";
 import EditPost from "./EditPost";
 import useWindowSize from "./hooks/useWindowSize";
-import useAxiousSize from "./hooks/useAxiousSize";
+import useAxiosFetch from "./hooks/useAxiosFetch";
 
 
 
@@ -27,8 +27,9 @@ function App() {
   const [editPostTitle, setEditPostTitle] = useState("");
   const [editPostBody, setEditPostBody] = useState("");
   const {width} = useWindowSize();
+  const {data, fetchError, isLoading} = useAxiosFetch("http://localhost:4000/posts")
 
-  //STEP 1
+  // STEP 1
   useEffect(() => {
     //we are using useEffect hooks so that the function will take effect as soon as the page loads
     const fetchPosts = async () => {
@@ -52,6 +53,10 @@ function App() {
     };
     fetchPosts();
   }, []);
+
+  // useEffect(() => {
+  //   setPosts(data)
+  // },[data])
 
   useEffect(() => {
     const filteredResults = posts.filter(
