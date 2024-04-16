@@ -1,9 +1,15 @@
-import {createContext, useState, useEffect, Children} from "react";
+import { createContext, useState, useEffect } from "react";
 
 const DataContext = createContext({})
 
-export const DataProvider = ({Children}) => {
+export const DataProvider = ({children}) => {
     return(
-        <DataProvider.Provide value= {{}}
+        <DataProvider.provide value= {{
+
+        }}>
+            {children}
+            </DataProvider.provide>
+
     )
 }
+export default DataProvider
