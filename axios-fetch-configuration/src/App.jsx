@@ -121,6 +121,7 @@ function App() {
 
   return (
     <div className="App">
+      <DataProvider>
       <Header title="DLT Blogs"  width={width}/>
       <Nav search={search} setsearch={setSearch} />
       <Routes>
@@ -165,6 +166,7 @@ function App() {
         <Route path="*" element={<Missing />} />
       </Routes>
       <Footer />
+      </DataProvider>
     </div>
   );
 }
