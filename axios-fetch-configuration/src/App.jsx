@@ -13,6 +13,7 @@ import api from "./api/post";
 import EditPost from "./EditPost";
 import useWindowSize from "./hooks/useWindowSize";
 import useAxiosFetch from "./hooks/useAxiosFetch";
+import { DataProvider} from "./context/DataContext";
 
 
 
