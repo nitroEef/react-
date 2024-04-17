@@ -1,4 +1,3 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
 import About from "./About";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -7,10 +6,12 @@ import Missing from "./Missing";
 import Nav from "./Nav";
 import NewPost from "./NewPost";
 import PostPage from "./PostPage";
+import EditPost from "./EditPost";
+
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import api from "./api/post";
-import EditPost from "./EditPost";
 import useWindowSize from "./hooks/useWindowSize";
 import useAxiosFetch from "./hooks/useAxiosFetch";
 import { DataProvider} from "./context/DataContext";
@@ -29,6 +30,7 @@ function App() {
   const [editPostBody, setEditPostBody] = useState("");
   const {width} = useWindowSize();
   const {data, fetchError, isLoading} = useAxiosFetch("http://localhost:4000/posts")
+  // console.log(data)
 
   // STEP 1
   useEffect(() => {
