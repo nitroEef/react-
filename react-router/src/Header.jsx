@@ -9,6 +9,4 @@ const Header = ({title}) => {
 }
 
 export default Header
-nkldnlkdncklnsdkl
-
-eddj
+nkldnlkdncklnsd
