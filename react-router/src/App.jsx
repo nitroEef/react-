@@ -74,24 +74,28 @@ function App() {
     setPosts(postList);
 
     navigate("/");
-  };-
+  };
   return (
     <div className="App">
+
       <Header title="DLT Blogs" />
       <Nav search={search} setSearch={setSearch} />
-      <Routes>
+
+  <Routes>
         <Route path="/" element={<Home posts={searchResult} />} />
+
         <Route path="/post" element={<NewPost handleSubmit={handleSubmit} 
          postTitle={postTitle}
          PostBody={PostBody} setPostBody={setPostBody} 
         setPostTitle={setPostTitle}/>} />
-        <Route
-          path="/post/:id"
-          element={<postPage posts={posts} handleDelete={handleDelete} />}
+
+        <Route path="/post/:id"
+       element={<postPage posts={posts} handleDelete={handleDelete} />}
         />
+
         <Route path="/about/" element={<About />} />
         <Route path="*" element={<Missing />} />
-      </Routes>
+  </Routes>
 
       <Footer />
     </div>
